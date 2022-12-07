@@ -1,4 +1,7 @@
 #pragma once
+#include <iostream>
+using namespace std;
+
 //-----------------------------------------
 // declaration de la classe
 //-----------------------------------------
@@ -67,4 +70,11 @@ template<typename T>
 inline void point<T>::setY(T b)
 {
 	this->y = b;
+}
+
+template<typename T>
+inline ostream& operator<<(ostream& s, point<T> pt)
+{
+	s << "x = " << pt.getX() << " y = " << pt.getY();
+	return s;
 }
