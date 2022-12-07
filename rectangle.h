@@ -1,22 +1,62 @@
+#ifndef _RECTANGLE_HPP_
+#define _RECTANGLE_HPP_
+
 #include <iostream>
 #include "point.h"
 
 template <typename T>
+class rectangle;
 
-class rectangle: private point<T>{
-   private:
-      T largeur;
-      T longeur;
-   public:
-      rectangle(point<T> p,T largeur, T longeur);
-      void translater(T a, T b);
-      bool contient(point<T>  p1);
-      void affiche(void);
+template <typename T>
+std::ostream& operator<<(std::ostream &, rectangle<T> const&);
 
+template <typename T>
+class rectangle{
+ 
+protected:
+   
+   //Les points du Rectangle
+   pointT<T> p ;
+   T l;
+   T h;
+
+public:
+    rectangle(pointT<T> p, T l, T h);
+    pointT<T> getPoint() const;
+    T getL() const;
+    T getH() const;
+
+   friend std::ostream& operator<< <T>(std::ostream &, rectangle const&);
+    
 };
 
-template<typename T>
-rectangle<T> :: rectangle(point<T> p, T largeur, T longeur) : point<T>(p.getX(), p.getY()){
-   this->largeur = largeur;
-   this->longeur = longeur;
+template <typename T>
+rectangle<T>::rectangle(pointT<T> p, T l, T h){
+   this->p = p; //attention copie superficielle
+   this->h = h;
+   this->l = l;
 }
+
+template <typename T>
+T rectangle<T>::getL() const{
+   return this->l;
+}
+
+template <typename T>
+T rectangle<T>::getH() const{
+   return this->h;
+}
+
+template <typename T> 
+pointT<T> rectangle<T>::getPoint() const{
+   return this->p;
+}
+
+template <typename T>
+std::ostream& operator<<(std::ostream &o, rectangle<T> const &R)
+{
+   o<<"("<<R.getPoint().getX()<<","<<R.getPoint().getY()<<"), "<<R.getH()<<", "<<R.getL()<<std::endl;
+
+  return o;
+}
+#endif
