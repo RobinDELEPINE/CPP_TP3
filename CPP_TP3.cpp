@@ -9,6 +9,6 @@ int main()
 {
     std::cout << "Hello World!\n";
     point<int> pt1(12, 13);
-    //point<int> pt2(pt1);
+    point<int> pt2(pt1);
 
 }

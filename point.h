@@ -1,4 +1,8 @@
 #pragma once
+//-----------------------------------------
+// declaration de la classe
+//-----------------------------------------
+
 template<typename T>
 class point
 {
@@ -14,6 +18,10 @@ public :
 	void setX(T a);
 	void setY(T b);
 };
+
+//-----------------------------------------
+// declaration des fonctions de la classe
+//-----------------------------------------
 
 template<typename T>
 inline point<T>::point(T x, T y)
@@ -32,9 +40,9 @@ inline void point<T>::translater(T a, T b)
 template<typename T>
 inline point<T>::point(point const & pt)
 {
-	this = pt;
-	// this->x = pt.getX();
-	// this->y = pt.getY();
+	//this = pt;
+	this->x = pt.x;
+	this->y = pt.y;
 }
 
 template<typename T>
