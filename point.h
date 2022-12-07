@@ -68,3 +68,4 @@ inline void point<T>::setY(T b)
 {
 	this->y = b;
 }
+//bonjour
