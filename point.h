@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <vector>
 using namespace std;
 
 //-----------------------------------------
@@ -10,9 +11,10 @@ template<typename T>
 class point
 {
 protected:
-	int x = 0;
-	int y = 0;
+	T x = 0;
+	T y = 0;
 public :
+	point();
 	point(T x, T y);
 	void translater(T a, T b);
 	point(point const & pt);
@@ -25,6 +27,13 @@ public :
 //-----------------------------------------
 // declaration des fonctions de la classe
 //-----------------------------------------
+
+template<typename T>
+inline point<T>::point()
+{
+	this->x = 0;
+	this->y = 0;
+}
 
 template<typename T>
 inline point<T>::point(T x, T y)
